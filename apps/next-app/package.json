@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "open:next:build": "npx --yes open-next@2 build",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start"
