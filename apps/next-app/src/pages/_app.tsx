@@ -11,7 +11,10 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <SessionProvider session={session}>
+    <SessionProvider
+      session={session}
+      baseUrl={process.env.NEXT_PUBLIC_NEXTAUTH_URL}
+    >
       <Component {...pageProps} />
     </SessionProvider>
   );
