@@ -5010,7 +5010,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-journey/next-app@workspace:apps/next-app":
+"@ts-journey/next-app@workspace:^, @ts-journey/next-app@workspace:apps/next-app":
   version: 0.0.0-use.local
   resolution: "@ts-journey/next-app@workspace:apps/next-app"
   dependencies:
@@ -5048,6 +5048,7 @@ __metadata:
   resolution: "@ts-journey/sst-app@workspace:apps/sst-app"
   dependencies:
     "@ts-journey/common": "workspace:^"
+    "@ts-journey/next-app": "workspace:^"
     "@ts-journey/vite-app": "workspace:^"
     aws-cdk-lib: 2.91.0
     constructs: 10.2.69
