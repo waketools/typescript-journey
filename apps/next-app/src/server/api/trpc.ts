@@ -36,11 +36,9 @@ interface CreateContextOptions {
  *
  * @see https://create.t3.gg/en/usage/trpc#-serverapitrpcts
  */
-const createInnerTRPCContext = ({ session }: CreateContextOptions) => {
-  return {
-    session,
-  };
-};
+const createInnerTRPCContext = ({ session }: CreateContextOptions) => ({
+  session,
+});
 
 /**
  * This is the actual context you will use in your router. It will be used to process every request
