@@ -63,12 +63,44 @@ function AuthShowcase() {
     { enabled: sessionData?.user !== undefined },
   );
 
+  const { data: url } = api.example.getUploadUrl.useQuery(
+    undefined, // no input
+    { enabled: sessionData?.user !== undefined },
+  );
+
   return (
     <div className="flex flex-col items-center justify-center gap-4">
       <p className="text-center text-2xl text-white">
         {sessionData && <span>Logged in as {sessionData.user?.email}</span>}
         {secretMessage && <span> - {secretMessage}</span>}
       </p>
+
+      {sessionData?.user && (
+        <form
+          onSubmit={async (e) => {
+            e.preventDefault();
+
+            // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+            const file = (e.target as HTMLFormElement).file.files?.[0]!;
+
+            const image = await fetch(url!, {
+              body: file,
+              method: "PUT",
+              headers: {
+                "Content-Type": file.type,
+                "Content-Disposition": `attachment; filename="${file.name}"`,
+              },
+            });
+
+            window.location.href = image.url.split("?")[0] as string;
+          }}
+        >
+          <input name="file" type="file" accept="image/png, image/jpeg" />
+          <button type="submit" style={{ color: "white" }}>
+            Upload
+          </button>
+        </form>
+      )}
       <button
         className="rounded-full bg-white/10 px-10 py-3 font-semibold text-white no-underline transition hover:bg-white/20"
         onClick={sessionData ? () => signOut() : () => signIn()}
