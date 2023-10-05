@@ -9,15 +9,13 @@ import "~/styles/globals.css";
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
-}) => {
-  return (
-    <SessionProvider
-      session={session}
-      baseUrl={process.env.NEXT_PUBLIC_NEXTAUTH_URL}
-    >
-      <Component {...pageProps} />
-    </SessionProvider>
-  );
-};
+}) => (
+  <SessionProvider
+    session={session}
+    baseUrl={process.env.NEXT_PUBLIC_NEXTAUTH_URL}
+  >
+    <Component {...pageProps} />
+  </SessionProvider>
+);
 
 export default api.withTRPC(MyApp);
