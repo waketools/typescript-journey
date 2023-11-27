@@ -5,7 +5,7 @@ By Simon Verhoeven
 ## Getting started
 
 - `yarn install`
-- `yarn start` run locally for development
+- `yarn dev` run locally for development
 - `yarn build` build packages
 - `yarn deploy` deploy with SST
 
