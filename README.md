@@ -1,6 +1,13 @@
 # Typescript Monorepo starter
 
-This is an official starter Turborepo.
+By Simon Verhoeven
+
+## Getting started
+
+- `yarn install`
+- `yarn build` build packages
+- `yarn dev` run locally for development
+- `yarn deploy` deploy with SST
 
 ## Using this example
 
@@ -14,15 +21,27 @@ npx create-turbo@latest
 
 This Turborepo includes the following packages/apps:
 
-### Apps and Packages
+### Apps
 
-- `lambda-api`: a [Nest.js](https://nestjs.com/) app
+- `lambda-api`: a [Nest.js](https://nestjs.com/) hello world app
+- `sst-app`: [sst](https://sst.dev/) Deployment code deploys stack to AWS
+- `cdk-app`: [cdk](https://github.com/aws/aws-cdk) Deployment code (alternative) deploys stack to AWS
+- `vite-app`: [Vite.js](https://vitejs.dev/guide/) Frontend App runs on `http://localhost:5173/`
+- `next-app`: [Next.js](https://nextjs.org/) Frontend App runs on `http://localhost:3000/`
+
+### Packages
+
+- `common`: Common code shared between packages
 - `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-### Utilities
+### Utils
+
+- `local-lambda-server` runs `lambda-api` app on localhost:4000
+
+### Tools
 
 This Turborepo has some additional tools already setup for you:
 
@@ -35,8 +54,15 @@ This Turborepo has some additional tools already setup for you:
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
-pnpm build
+yarn build
+```
+
+### Deploy
+
+To deploy use the following command
+
+```
+yarn deploy
 ```
 
 ### Develop
@@ -44,8 +70,7 @@ pnpm build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
-pnpm dev
+yarn dev
 ```
 
 ### Remote Caching

@@ -1,5 +1,16 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": false,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveWatchOutput": true,
+    "strict": true,
+    "strictNullChecks": true,
     "composite": true,
     "declarationMap": true,
     "sourceMap": true,
@@ -15,12 +26,7 @@
     "rootDir": "./",
     "baseUrl": ".",
     "paths": {},
-    "allowSyntheticDefaultImports": true,
-    "plugins": [
-      {
-        "transform": "typescript-transform-paths"
-      }
-    ]
+    "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules", "dist", "scripts", "**/build", "**/dist", "**/node_modules", "cdk.out", "**/cdk.out"]
 }
